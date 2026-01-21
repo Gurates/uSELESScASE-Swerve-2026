@@ -2,6 +2,8 @@ package frc.robot.commands.drivetrain;
 
 import java.util.function.Supplier;
 
+import org.opencv.core.Mat;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.constants.IOConstants;
 import frc.robot.subsystems.drivetrain.DrivetrainSubsystem;
@@ -40,9 +42,9 @@ public class FieldRelativeDriveCommand extends Command {
   @Override
   public void execute() {
 
-    xSpeed = xSpeedSupplier.get() > IOConstants.DRIVER_DEADBAND ? xSpeedSupplier.get() * -1 : 0;
-    ySpeed = ySpeedSupplier.get() > IOConstants.DRIVER_DEADBAND ? ySpeedSupplier.get() * -1 : 0;
-    rSpeed = rSpeedSupplier.get() > IOConstants.DRIVER_DEADBAND ? rSpeedSupplier.get() * -1 : 0;
+    xSpeed = Math.abs(xSpeedSupplier.get()) > IOConstants.DRIVER_DEADBAND ? xSpeedSupplier.get() * -1 : 0;
+    ySpeed = Math.abs(ySpeedSupplier.get()) > IOConstants.DRIVER_DEADBAND ? ySpeedSupplier.get() * -1 : 0;
+    rSpeed = Math.abs(rSpeedSupplier.get()) > IOConstants.DRIVER_DEADBAND ? rSpeedSupplier.get() * -1 : 0;
 
     drivetrainSubsystem.driveFieldRelative(xSpeed, ySpeed, rSpeed);
   }

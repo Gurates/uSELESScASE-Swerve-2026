@@ -77,7 +77,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
     
     // Update robot orientation for MegaTag2 (CRITICAL for accurate pose estimation)
     updateRobotOrientation();
-    
+
     // Process vision measurements and update odometry
     processVisionMeasurement();
     

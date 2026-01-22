@@ -77,7 +77,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
     
     // Update robot orientation for MegaTag2 (CRITICAL for accurate pose estimation)
     updateRobotOrientation();
-    
+
     // Process vision measurements and update odometry
     processVisionMeasurement();
     
@@ -241,7 +241,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
    */
   public void driveRobotRelative(double xSpeed, double ySpeed, double rSpeed) {
     if (swerveDrive == null) return;
-    
+
     swerveDrive.drive(
         new Translation2d(xSpeed, ySpeed), 
         rSpeed, 
